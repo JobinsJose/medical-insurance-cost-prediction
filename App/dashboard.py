@@ -10,8 +10,8 @@ dashboard_bp = Blueprint('dashboard', __name__)
 model = joblib.load('App/best_insurance_model.pkl')
 
 # --------Assume test data is available
-X_test = pd.read_csv('X_test.csv')
-y_test = pd.read_csv('y_test.csv').values.ravel()
+X_test = pd.read_csv('App/X_test.csv')
+y_test = pd.read_csv('App/y_test.csv').values.ravel()
 
 @dashboard_bp.route('/dashboard')
 def show_dashboard():
