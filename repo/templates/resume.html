@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Jobins Jose — Resume</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+       
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: #fff;
+            border-radius: 10px;
+            padding: 28px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+
+        /* Header with photo */
+        .header {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            border-bottom: 1px solid #e6e9ee;
+            padding-bottom: 18px;
+        }
+
+        .photo {
+            width: 110px;
+            height: 110px;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border: 3px solid #fff;
+        }
+
+        .name-block {
+            flex: 1;
+        }
+
+        .name {
+            font-size: 26px;
+            color: #2c3e50;
+            margin: 0 0 6px 0;
+        }
+
+        .sub {
+            color: #666;
+            margin: 0 0 10px 0;
+            font-size: 14px;
+        }
+
+        .contact {
+            font-size: 14px;
+            color: #444;
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .contact a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        /* Sections */
+        .section {
+            margin-top: 22px;
+        }
+
+        .section h3 {
+            margin: 0 0 12px 0;
+            color: #34495e;
+            font-size: 18px;
+        }
+
+        .summary {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #3b3b3b;
+        }
+
+        /* Two-column layout for skills / experience header */
+        .row {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .col {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 12px;
+        }
+
+        .chip {
+            background: #eef6fb;
+            color: #2c7fa0;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        /* Experience and Project entries */
+        .item {
+            margin-bottom: 14px;
+        }
+
+        .item .title {
+            font-weight: 700;
+            color: #2c3e50;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .item .meta {
+            color: #7a8696;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .item p {
+            margin: 0;
+            color: #444;
+            line-height: 1.5;
+            font-size: 14px;
+        }
+
+        .tech {
+            margin-top: 8px;
+            font-size: 13px;
+            color: #5e6a75;
+        }
+
+        /* Footer nav (small) */
+        nav {
+            margin-top: 22px;
+            text-align: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .header { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .photo { width: 96px; height: 96px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <!-- replace /static/img/photo.jpg with your actual photo file -->
+            <img src="/static/img/photo.jpg" alt="Jobins Jose Photo" class="photo" />
+
+            <div class="name-block">
+                <h1 class="name">Jobins Jose</h1>
+                <p class="sub">Chicago, IL • 224-258-8027 • <a href="mailto:jobins@gmail.com">jobins@gmail.com</a> • <a href="https://www.linkedin.com/in/jobins-jose-a224a02a7/" target="_blank" rel="noopener">LinkedIn</a></p>
+
+                <div class="contact">
+                    <span>Data Scientist (M.S. Data Science)</span>
+                    <span>GitHub: <a href="https://github.com/yourusername" target="_blank" rel="noopener">yourusername</a></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Summary -->
+        <div class="section">
+            <h3>Professional Summary</h3>
+            <p class="summary">
+                Data Scientist with a Master’s in Data Science and a Bachelor’s in IT, skilled in machine learning, data analysis, and visualization. Experienced in building predictive models, interpreting results, and delivering data-driven solutions that drive business impact. Proficient in Python, SQL, and key data science tools.
+            </p>
+        </div>
+
+        <!-- Skills -->
+        <div class="section">
+            <h3>Skills</h3>
+            <div class="row">
+                <div class="col">
+                    <strong>Programming</strong>
+                    <div class="skill-list" style="margin-top:8px;">
+                        <span class="chip">Python</span>
+                        <span class="chip">C</span>
+                        <span class="chip">C++</span>
+                        <span class="chip">R</span>
+                        <span class="chip">Java</span>
+                        <span class="chip">SQL</span>
+                        <span class="chip">HTML/CSS</span>
+                        <span class="chip">C#</span>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <strong>Tools & Libraries</strong>
+                    <div class="skill-list" style="margin-top:8px;">
+                        <span class="chip">scikit-learn</span>
+                        <span class="chip">XGBoost</span>
+                        <span class="chip">Pandas</span>
+                        <span class="chip">NumPy</span>
+                        <span class="chip">Matplotlib</span>
+                        <span class="chip">Seaborn</span>
+                        <span class="chip">Flask</span>
+                        <span class="chip">Tableau</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience -->
+        <div class="section">
+            <h3>Additional Experience</h3>
+
+            <div class="item">
+                <div class="title">CVS Health — Data Entry Clerk</div>
+                <div class="meta">Mount Prospect • February 2018 – Present</div>
+                <p>Performed accurate data entry and record maintenance, contributing to daily operational efficiency. Gained hands-on experience with large data volumes and quality control processes.</p>
+            </div>
+        </div>
+
+        <!-- Projects -->
+        <div class="section">
+            <h3>Projects</h3>
+
+            <div class="item">
+                <div class="title">Medical Insurance Charges Prediction</div>
+                <div class="meta">Independent Project — Master’s in Data Science • Aug 2025</div>
+                <p>
+                    Developed a predictive model to estimate medical insurance charges using demographic and lifestyle features (age, BMI, smoking status, region, children). Implemented and compared Linear Regression, Random Forest, XGBoost, and MLP Regressor, tuning hyperparameters with GridSearchCV/RandomizedSearchCV. The final pipeline (preprocessing + XGBoost) achieved <strong>R² = 0.872</strong> and <strong>RMSE ≈ $4,256</strong>. The model includes SHAP explanations and bootstrapped confidence intervals, and is deployed as a Flask web application for real-time predictions and interpretability.
+                </p>
+                <div class="tech"><strong>Tech stack:</strong> Python, Pandas, NumPy, Scikit-learn, XGBoost, Matplotlib, Seaborn, SHAP, Flask.</div>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="section">
+            <h3>Education</h3>
+
+            <div class="item">
+                <div class="title">Eastern University — Master of Science in Data Science</div>
+                <div class="meta">St. Davids, PA • Expected Aug 2025</div>
+                <p>Relevant coursework: Applied Machine Learning, Database Management, Statistical Modelling</p>
+            </div>
+
+            <div class="item">
+                <div class="title">Northeastern Illinois University — Bachelor of Computer Science</div>
+                <div class="meta">Chicago, IL • December 2023</div>
+            </div>
+        </div>
+
+        <!-- Footer / Navigation -->
+        <nav>
+            <a href="/">About</a> |
+            <a href="/projects">My Project</a>   
+        </nav>
+    </div>
+</body>
+</html>
