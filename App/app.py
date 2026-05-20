@@ -98,25 +98,35 @@ def PredictpreprocessData(age, bmi, children, sex, smoker, region, n_bootstraps=
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    age = int(request.form['age'])
-    bmi = float(request.form['bmi'])
-    children = int(request.form['children'])
-    sex = request.form['sex']
-    smoker = request.form['smoker']
-    region = request.form['region']
+    try:
+        print("DEBUG: Predict route hit")
 
-    prediction, shap_img_path, lower, upper = PredictpreprocessData(age, bmi, children, sex, smoker, region)
+        print(request.form)  # 👈 SEE WHAT IS COMING
 
-    return render_template(
-        'prediction.html',
-        predictions=round(prediction, 2),
-        lower=round(lower, 2),
-        upper=round(upper, 2),
-        shap_image=shap_img_path
-    )
+        age = int(request.form['age'])
+        bmi = float(request.form['bmi'])
+        children = int(request.form['children'])
+        sex = request.form['sex']
+        smoker = request.form['smoker']
+        region = request.form['region']
 
+        prediction, shap_img_path, lower, upper = PredictpreprocessData(
+            age, bmi, children, sex, smoker, region
+        )
+
+        return render_template(
+            'prediction.html',
+            predictions=round(prediction, 2),
+            lower=round(lower, 2),
+            upper=round(upper, 2),
+            shap_image=shap_img_path
+        )
+
+    except Exception as e:
+        print("ERROR:", str(e))
+        return str(e)
+    
 app.register_blueprint(dashboard_bp)
-
 
 @app.route('/api/predict', methods=['POST'])
 def api_predict():
