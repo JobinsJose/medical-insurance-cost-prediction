@@ -7,7 +7,7 @@ import shap
 import os
 
 dashboard_bp = Blueprint('dashboard', __name__)
-model = joblib.load('best_insurance_model.pkl')
+model = joblib.load('App/best_insurance_model.pkl')
 
 # --------Assume test data is available
 X_test = pd.read_csv('X_test.csv')
