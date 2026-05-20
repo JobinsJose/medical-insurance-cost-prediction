@@ -42,7 +42,7 @@ def PredictpreprocessData(age, bmi, children, sex, smoker, region, n_bootstraps=
     }])
 
     # ----Load model pipeline
-    model = joblib.load('best_insurance_model.pkl')
+    model = joblib.load('App/best_insurance_model.pkl')
     preprocessor = model.named_steps['preprocess']
     regressor = model.named_steps['regressor']
 
