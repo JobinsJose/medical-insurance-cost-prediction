@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: #f7f7f7;
+}
+h1 {
+    color: #2c3e50;
+}
+form label {
+    display: block;
+    margin: 10px 0;
+}
+ nav {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }

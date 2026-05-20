@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Insurance Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        .container {
+            background-color: white;
+            max-width: 800px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        input[type="submit"] {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+        nav {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .overview {
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Medical Insurance Charges Prediction</h1>
+
+        <div class="overview">
+               <p>
+            This project is designed to predict medical insurance charges for individuals based on their demographic and lifestyle 
+            characteristics, such as age, BMI, smoking status, number of children, and region. The goal is to create a robust, 
+            interpretable, and accurate machine learning model that can provide insights to both individuals and insurance companies.
+        </p>
+
+        <h2>1. Problem Statement</h2>
+        <p>
+            Health insurance premiums often vary significantly due to multiple personal and lifestyle factors. 
+            Predicting these costs accurately helps individuals plan finances and enables insurers to estimate fair premiums. 
+            The challenge lies in building a predictive model that is not only accurate but also interpretable, 
+            so that end-users understand the reasoning behind the predictions.
+        </p>
+
+        <h2>2. Dataset</h2>
+        <p>
+            The dataset used in this project contains historical records of insurance customers, including:
+        </p>
+        <ul>
+            <li>Age – Numerical, representing the person’s age in years.</li>
+            <li>Sex – Categorical, indicating male or female.</li>
+            <li>BMI – Numerical, representing the Body Mass Index.</li>
+            <li>Children – Number of children/dependents covered by the insurance.</li>
+            <li>Smoker – Categorical, indicating if the person is a smoker.</li>
+            <li>Region – Categorical, indicating the region where the person lives.</li>
+            <li>Charges – Numerical target variable representing the annual medical insurance cost.</li>
+        </ul>
+
+        <h2>3. Exploratory Data Analysis (EDA)</h2>
+        <p>
+            We started with exploratory data analysis to understand patterns, detect anomalies, and visualize relationships between features.
+            This included:
+        </p>
+        <ul>
+            <li>Distribution plots for numerical variables (age, BMI, charges).</li>
+            <li>Box plots to identify outliers, especially in charges and BMI.</li>
+            <li>Bar charts for categorical features like smoker status and region.</li>
+            <li>Correlation heatmaps to identify strong predictors of charges.</li>
+        </ul>
+
+        <h2>4. Data Cleaning</h2>
+        <p>
+            The dataset was generally clean with no missing values. However, outlier treatment was performed for extreme BMI values and 
+            extremely high charges to reduce the impact of anomalies on the model’s performance.
+        </p>
+
+        <h2>5. Preprocessing Pipeline</h2>
+        <p>
+            To ensure a reproducible and scalable workflow, we implemented a preprocessing pipeline using scikit-learn’s 
+            <code>Pipeline</code> and <code>ColumnTransformer</code>. Steps included:
+        </p>
+        <ul>
+            <li>Encoding categorical variables using One-Hot Encoding.</li>
+            <li>Scaling numerical variables using StandardScaler.</li>
+            <li>Combining transformations into a single pipeline object for training and testing.</li>
+        </ul>
+
+        <h2>6. Model Selection & Training</h2>
+        <p>
+            Four regression models were considered:
+        </p>
+        <ul>
+            <li>Linear Regression</li>
+            <li>Random Forest Regressor</li>
+            <li>XGBoost Regressor</li>
+            <li>Neural Network Model</li>
+        </ul>
+        <p>
+            Hyperparameter tuning was performed using GridSearchCV  to optimize performance.
+        </p>
+
+        <h2>7. Evaluation Metrics</h2>
+        <p>
+            Models were evaluated using:
+        </p>
+        <ul>
+            <li>Mean Absolute Error (MAE)</li>
+            <li>Mean Squared Error (MSE)</li>
+            <li>Root Mean Squared Error (RMSE)</li>
+            <li>R² Score</li>
+        </ul>
+        <p>
+            The XGBoost model achieved the best results, with high R² and low RMSE.
+        </p>
+
+        <h2>8. Model Explainability with SHAP</h2>
+        <p>
+            SHAP (SHapley Additive exPlanations) was used to interpret the model. 
+            SHAP summary plots and dependence plots revealed that:
+        </p>
+        <ul>
+            <li>Smoking status has the highest impact on charges.</li>
+            <li>BMI and age also significantly affect predictions.</li>
+            <li>Region plays a smaller role in determining cost.</li>
+        </ul>
+
+        <h2>9. Visualization of Results</h2>
+        <p>
+            Residual plots confirmed that the model's errors were randomly distributed, 
+            and actual vs predicted plots showed high alignment.
+        </p>
+
+        <h2>10. Deployment</h2>
+        <p>
+            The final pipeline (preprocessing + XGBoost model) was serialized using <code>joblib</code> 
+            and deployed with a Flask web interface. The UI allows users to input their details and 
+            receive cost predictions instantly, along with SHAP-based explanations.
+        </p>
+
+        <h2>11. Conclusion</h2>
+        <p>
+            This project successfully demonstrates how machine learning can be used to predict medical 
+            insurance costs accurately while maintaining transparency through explainability techniques.
+        </p>
+        </div>
+
+        <form action="/predict" method="POST">
+            <label>Age:</label>
+            <input type="number" name="age" required>
+
+            <label>BMI:</label>
+            <input type="number" step="any" name="bmi" required>
+
+            <label>Children:</label>
+            <input type="number" name="children" required>
+
+            <label>Sex:</label>
+            <select name="sex">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+            <label>Smoker:</label>
+            <select name="smoker">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label>Region:</label>
+            <select name="region">
+                <option value="northeast">Northeast</option>
+                <option value="northwest">Northwest</option>
+                <option value="southeast">Southeast</option>
+                <option value="southwest">Southwest</option>
+            </select>
+
+            <input type="submit" value="Predict">
+        </form>
+
+        <nav>
+            <a href="/">About</a> | 
+            <a href="/resume">Resume</a> | 
+            <a href="/projects">My Projects</a> | 
+            <a href="/dashboard">Dashboard</a>
+        </nav>
+    </div>
+</body>
+</html>
