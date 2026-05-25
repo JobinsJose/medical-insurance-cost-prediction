@@ -133,8 +133,11 @@ def PredictpreprocessData(age, bmi, children, sex, smoker, region, n_bootstraps=
 
     plt.savefig(shap_path, bbox_inches='tight')
     plt.close()
+    filename = f"shap_{image_id}.png"
 
-    return prediction, shap_path, lower_bound, upper_bound
+    shap_image = f"img/{filename}"
+
+    return prediction, shap_image, lower_bound, upper_bound
 
 
 # =========================
@@ -150,7 +153,7 @@ def predict():
         smoker = request.form['smoker']
         region = request.form['region']
 
-        prediction, shap_img_path, lower, upper = PredictpreprocessData(
+        prediction, shap_image, lower, upper = PredictpreprocessData(
             age, bmi, children, sex, smoker, region
         )
 
@@ -159,7 +162,7 @@ def predict():
             predictions=round(prediction, 2),
             lower=round(lower, 2),
             upper=round(upper, 2),
-            shap_image=shap_img_path
+            shap_image=shap_image
         )
 
     except Exception as e:
